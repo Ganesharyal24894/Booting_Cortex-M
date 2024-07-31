@@ -16,6 +16,7 @@
 
 uint32_t delay = 100000;
 
+// this code is for naked_main()
 __attribute__((naked, noreturn)) int main(void)
 {
 
