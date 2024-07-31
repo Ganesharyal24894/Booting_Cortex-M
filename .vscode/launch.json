@@ -1,0 +1,30 @@
+
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug (OpenOCD)",
+            "cwd": "${workspaceRoot}",
+            "executable": "./build/final.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "openocd",
+            "interface": "swd",
+            "device": "STM32G030F6P6TR",
+            "runToEntryPoint": "Reset_Handler",
+            "svdFile": "C:\\Users\\Ganes\\OneDrive\\Desktop\\STM32_Docs\\STM32G0\\stm32g030.svd",
+            "configFiles": [
+                "C:\\Embedded_Tools\\openocd-20231002\\OpenOCD-20231002-0.12.0\\share\\openocd\\scripts\\interface\\stlink-v2.cfg",
+                "C:\\Embedded_Tools\\openocd-20231002\\OpenOCD-20231002-0.12.0\\share\\openocd\\scripts\\target\\stm32g0x.cfg"
+            ],
+            "preLaunchCommands": [
+                "set mem inaccessible-by-default off",
+                "monitor reset init"
+            ],
+            "postLaunchCommands": [
+                "monitor reset init",
+                "monitor sleep 200"
+            ]
+        }
+    ]
+}
