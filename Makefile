@@ -6,6 +6,10 @@ SRC_DIR = src
 BUILD_DIR = build
 LD_DIR = linker
 
+#Config files for OpenOCD
+OPENOCD_INTERFACE = C:/Embedded_Tools/openocd-20231002/OpenOCD-20231002-0.12.0/share/openocd/scripts/interface/picoprobe.cfg
+OPENOCD_TARGET = C:/Embedded_Tools/openocd-20231002/OpenOCD-20231002-0.12.0/share/openocd/scripts/target/stm32g0x.cfg
+
 # Source files and object files
 SRCS = $(wildcard $(SRC_DIR)/*.c)
 OBJ = $(SRCS:$(SRC_DIR)/%.c=$(BUILD_DIR)/%.o)
@@ -33,11 +37,14 @@ $(OUTPUT).elf : $(OBJ)
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c | $(BUILD_DIR)
 	$(PREFIX)gcc $(CFLAGS) -c $^ -o $@
 
-#Give info and flash binary file
-flash : all
-	@st-info --probe
-	st-flash --reset write $(OUTPUT).bin 0x8000000
 
+#Flash via OpenOCD
+flash : all
+	openocd -f $(OPENOCD_INTERFACE) -f $(OPENOCD_TARGET) -c "adapter program $(BUILD_DIR)/$(PROJECT).elf verify reset exit shutdown"
+
+#Start gdb server for debugging
+gdbserver : 
+	openocd -f $(OPENOCD_INTERFACE) -f $(OPENOCD_TARGET)
 
 # Ensure the build directory exists
 $(BUILD_DIR):
