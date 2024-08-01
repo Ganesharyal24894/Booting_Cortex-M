@@ -4,9 +4,9 @@
 #define RAM_SIZE                   (8U * 1024U)
 #define STACK_START                ((RAM_START) + (RAM_SIZE))
 
-int main(void);
+int main(void)  __attribute__((naked, noreturn));
 
-void Reset_Handler(void);
+void Reset_Handler(void)                                             __attribute__((naked, noreturn));
 void NMI_Handler(void)                                               __attribute__((weak, alias("Default_Handler")));
 void HardFault_Handler(void)                                         __attribute__((weak, alias("Default_Handler")));
 void SVC_Handler(void)                                               __attribute__((weak, alias("Default_Handler")));
