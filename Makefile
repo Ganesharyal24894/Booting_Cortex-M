@@ -40,7 +40,7 @@ $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c | $(BUILD_DIR)
 
 #Flash via OpenOCD
 flash : all
-	openocd -f $(OPENOCD_INTERFACE) -f $(OPENOCD_TARGET) -c  " program $(BUILD_DIR)/$(PROJECT).elf verify reset exit"
+	openocd -f $(OPENOCD_INTERFACE) -f $(OPENOCD_TARGET) -c  " program $(OUTPUT).elf verify reset exit"
 
 #Start gdb server for debugging
 gdbserver : 
