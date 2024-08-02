@@ -7,8 +7,8 @@ BUILD_DIR = build
 LD_DIR = linker
 
 #Config files for OpenOCD
-OPENOCD_INTERFACE = C:/Embedded_Tools/openocd-20231002/OpenOCD-20231002-0.12.0/share/openocd/scripts/interface/picoprobe.cfg
-OPENOCD_TARGET = C:/Embedded_Tools/openocd-20231002/OpenOCD-20231002-0.12.0/share/openocd/scripts/target/stm32g0x.cfg
+OPENOCD_INTERFACE = openocd_cfg/picoprobe.cfg
+OPENOCD_TARGET = openocd_cfg/stm32g0x.cfg
 
 # Source files and object files
 SRCS = $(wildcard $(SRC_DIR)/*.c)
