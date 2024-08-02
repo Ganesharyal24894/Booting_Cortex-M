@@ -43,7 +43,7 @@ flash : all
 	openocd -f $(OPENOCD_INTERFACE) -f $(OPENOCD_TARGET) -c  " program $(OUTPUT).elf verify reset exit"
 
 #Start gdb server for debugging
-gdbserver : 
+debug : flash 
 	openocd -f $(OPENOCD_INTERFACE) -f $(OPENOCD_TARGET)
 
 # Ensure the build directory exists
