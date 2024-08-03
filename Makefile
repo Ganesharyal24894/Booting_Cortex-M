@@ -21,7 +21,7 @@ PREFIX = arm-none-eabi-
 
 CFLAGS = -mcpu=cortex-m0plus -mthumb -O0 -Wall -std=gnu11 \
 		 -Wconversion -I.-Wshadow -Werror -g
-LDFLAGS = -nostdlib -Wall -g -Wl,-Map,$(OUTPUT).map,--print-memory-usage,--gc-sections,-g
+LDFLAGS = -nostdlib -Wall -g -Wl,-Map,$(OUTPUT).map,--print-memory-usage,--gc-sections
 
 all : $(OUTPUT).bin	
 
