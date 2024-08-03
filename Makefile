@@ -40,7 +40,7 @@ $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c | $(BUILD_DIR)
 
 #Flash via OpenOCD
 flash : all
-	openocd -f $(OPENOCD_INTERFACE) -f $(OPENOCD_TARGET) -c  " program $(OUTPUT).elf verify reset exit"
+	openocd -f $(OPENOCD_INTERFACE) -f $(OPENOCD_TARGET) -c " program $(OUTPUT).elf verify reset exit"
 
 #Start gdb server for debugging
 debug : flash 
@@ -49,6 +49,10 @@ debug : flash
 # Ensure the build directory exists
 $(BUILD_DIR):
 	mkdir $(BUILD_DIR)
+
+# To auto probe what kind of CPU you have
+probe : 
+	openocd -f openocd_cfg/openocd.cfg
 
 # Remove build directory	
 clean:
