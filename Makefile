@@ -34,7 +34,7 @@ $(OUTPUT).elf : $(OBJ)
 	$(PREFIX)gcc $(LDFLAGS) -T $(LINKER_SCRIPT)  $^ -o $@
 
 
-$(BUILD_DIR)/%.o: $(SRC_DIR)/%.c | $(BUILD_DIR)
+$(BUILD_DIR)/%.o : $(SRC_DIR)/%.c | $(BUILD_DIR)
 	$(PREFIX)gcc $(CFLAGS) -c $^ -o $@
 
 
@@ -55,7 +55,7 @@ probe :
 	openocd -f openocd_cfg/openocd.cfg
 
 # Remove build directory	
-clean:
+clean :
 	rm -rf $(BUILD_DIR)
 
-.PHONY: all clean
+.PHONY: all clean probe
