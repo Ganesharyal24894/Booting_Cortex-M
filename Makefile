@@ -7,7 +7,7 @@ BUILD_DIR = build
 LD_DIR = linker
 
 #Config files for OpenOCD
-OPENOCD_INTERFACE = openocd_cfg/picoprobe.cfg
+OPENOCD_INTERFACE = openocd_cfg/cmsis-dap.cfg
 OPENOCD_TARGET = openocd_cfg/stm32g0x.cfg
 
 # Source files and object files
