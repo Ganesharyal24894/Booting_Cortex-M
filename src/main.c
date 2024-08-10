@@ -16,7 +16,7 @@
 
 uint32_t delay = 1000000;
 
-__attribute__((naked, noreturn)) int main(void)
+int main(void)
 {
 
 	*((uint32_t *)(RCC_BASE + IOPENR_OFFSET)) |= (1U << 1) | (1U << 0); // enabling port A & B
@@ -43,4 +43,5 @@ __attribute__((naked, noreturn)) int main(void)
 		// 	delay += 100000;
 		// }
 	}
+	return 0;
 }
