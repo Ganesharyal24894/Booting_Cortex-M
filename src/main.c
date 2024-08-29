@@ -14,7 +14,7 @@
 #define MODER_OFFSET 0x00
 #define ODR_OFFSET 0x14
 
-uint32_t delay = 1000000;
+uint32_t delay = 100000;
 
 int main(void)
 {

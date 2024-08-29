@@ -38,7 +38,7 @@ $(BUILD_DIR)/%.o : $(SRC_DIR)/%.c | $(BUILD_DIR)
 	$(PREFIX)gcc $(CFLAGS) -c $^ -o $@
 
 
-#Flash via OpenOCD
+#Flash via OpenOCD, I am using PicoProbe
 flash : all
 	openocd -f $(OPENOCD_INTERFACE) -f $(OPENOCD_TARGET) -c " program $(OUTPUT).elf verify reset exit"
 

@@ -6,7 +6,7 @@ ENTRY(Reset_Handler)
 MEMORY
 {
         RAM    (rw)    : ORIGIN = 0x20000000,   LENGTH = 8K
-        FLASH  (rx)    : ORIGIN = 0x08000000,    LENGTH = 32K
+        FLASH  (rx)    : ORIGIN = 0x08000000,   LENGTH = 32K
 }
 
 SECTIONS
